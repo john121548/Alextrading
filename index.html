@@ -26,6 +26,20 @@
 
     <!-- Header -->
     <header class="site-header" role="banner">
+        <!-- Top Bar -->
+        <div class="header-top-bar">
+            <div class="container">
+                <div class="contact-info">
+                    <span><i class="fas fa-phone-alt"></i> <a href="tel:+201070598888">01070598888</a></span>
+                    <span class="separator">|</span>
+                    <span><i class="fas fa-map-marker-alt"></i> 2 طريق الحرية، شارع فؤاد، الاسكندرية</span>
+                </div>
+                <div class="social-media-top">
+                    <a href="https://www.facebook.com/swy.tk.almnshyh?locale=ar_AR" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://wa.me/+201070598888" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
         <!-- Main Navigation -->
         <div class="header-main">
             <div class="container header-container">
@@ -41,7 +55,8 @@
                         <li><a href="#home" class="nav-link">الرئيسية</a></li>
                         <li><a href="#services" class="nav-link">خدماتنا</a></li>
                         <li><a href="products.html" class="nav-link">المنتجات</a></li>
-                        <li><a href="#why-us" class="nav-link">لماذا نحن؟</a></li>
+                        <li><a href="#gemini-assistant" class="nav-link">✨ مساعد الصيانة</a></li>
+                        <li><a href="#testimonials" class="nav-link">آراء العملاء</a></li>
                         <li><a href="#contact" class="nav-link">تواصل معنا</a></li>
                     </ul>
                 </nav>
@@ -81,81 +96,36 @@
             </div>
         </section>
 
-        <!-- Why Us Section (New) -->
-        <section id="why-us" class="why-us-section section-padding-alt">
-            <div class="container">
-                <h2 class="section-title" data-aos="fade-up">لماذا تختار AlexTrading؟</h2>
-                <div class="why-us-grid">
-                    <div class="why-us-item" data-aos="fade-up" data-aos-delay="100">
-                        <div class="item-icon"><i class="fas fa-check-circle"></i></div>
-                        <div class="item-content">
-                            <h4>منتجات موثوقة</h4>
-                            <p>نضمن لك قطع غيار أصلية ومستلزمات عالية الجودة تدوم طويلاً.</p>
-                        </div>
-                    </div>
-                    <div class="why-us-item" data-aos="fade-up" data-aos-delay="200">
-                        <div class="item-icon"><i class="fas fa-user-tie"></i></div>
-                        <div class="item-content">
-                            <h4>خبرة طويلة</h4>
-                            <p>سنوات من الخبرة في السوق تمنحنا فهماً عميقاً لاحتياجات عملائنا.</p>
-                        </div>
-                    </div>
-                    <div class="why-us-item" data-aos="fade-up" data-aos-delay="300">
-                        <div class="item-icon"><i class="fas fa-headset"></i></div>
-                        <div class="item-content">
-                            <h4>دعم فني متكامل</h4>
-                            <p>فريقنا جاهز لتقديم المشورة والمساعدة لاختيار الأفضل لك.</p>
-                        </div>
-                    </div>
+        <!-- Gemini Assistant Section (New) -->
+        <section id="gemini-assistant" class="gemini-assistant-section section-padding-alt">
+            <div class="container" data-aos="fade-up">
+                <div class="section-header">
+                    <h2 class="section-title">✨ مساعد الصيانة الذكي</h2>
+                    <p class="section-subtitle">هل تواجه مشكلة في ماكينتك؟ صفها لنا وسنساعدك في تشخيصها واقتراح الحلول.</p>
+                </div>
+                <div class="gemini-assistant-form">
+                    <textarea id="problem-description" placeholder="مثال: الإبرة تنكسر باستمرار عند الخياطة على قماش سميك..."></textarea>
+                    <button id="get-advice-btn" class="btn btn-primary"><span><i class="fas fa-cogs"></i> احصل على نصيحة</span></button>
                 </div>
             </div>
         </section>
-        
-        <section id="featured-products" class="featured-products-section section-padding">
+
+        <section id="testimonials" class="testimonials section-padding">
             <div class="container">
-                <h2 class="section-title" data-aos="fade-up">أحدث المنتجات</h2>
-                <p class="section-subtitle" data-aos="fade-up">اكتشف جديدنا من قطع الغيار والمستلزمات</p>
-                <div class="product-grid" id="featured-product-grid" data-aos="fade-up" data-aos-delay="100">
-                    <!-- Featured products will be loaded here by JavaScript -->
-                    <div class="product-card">
-                        <img src="images/singer-product-1.jpg" alt="مكوك سنجر أصلي موديل 123" class="product-image">
-                        <h3 class="product-name">مكوك سنجر أصلي موديل 123</h3>
-                        <p class="product-availability available"><i class="fas fa-check-circle"></i> متوفر</p>
-                        <a href="products.html#singer" class="btn btn-danger btn-block">اطلب الآن</a>
+                <h2 class="section-title" data-aos="fade-up">ماذا يقول عملاؤنا</h2>
+                <div class="testimonial-slider-container" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-item">
+                        <p>"خدمة ممتازة وقطع غيار أصلية. أنصح بشدة بالتعامل مع AlexTrading!"</p>
+                        <h4>- أحمد محمود</h4>
                     </div>
-                    <div class="product-card">
-                        <img src="images/over-product-1.jpg" alt="طقم سكاكين أوفر (عليا وسفلى)" class="product-image">
-                        <h3 class="product-name">طقم سكاكين أوفر (عليا وسفلى)</h3>
-                        <p class="product-availability available"><i class="fas fa-check-circle"></i> متوفر</p>
-                        <a href="products.html#over" class="btn btn-danger btn-block">اطلب الآن</a>
+                    <div class="testimonial-item">
+                        <p>"وجدت كل ما أحتاجه لماكينتي لديهم، وفريق الصيانة محترف جدًا."</p>
+                        <h4>- فاطمة علي</h4>
                     </div>
-                    <div class="product-card">
-                        <img src="images/needles-product-1.jpg" alt="علبة إبر متنوعة (مقاسات مختلفة)" class="product-image">
-                        <h3 class="product-name">علبة إبر متنوعة (مقاسات مختلفة)</h3>
-                        <p class="product-availability available"><i class="fas fa-check-circle"></i> متوفر</p>
-                        <a href="products.html#needles" class="btn btn-danger btn-block">اطلب الآن</a>
+                    <div class="testimonial-item">
+                        <p>"أسعار مناسبة وجودة عالية. شكراً AlexTrading على خدمتكم الرائعة."</p>
+                        <h4>- محمد حسن</h4>
                     </div>
-                    <div class="product-card">
-                        <img src="images/accessory-product-1.jpg" alt="زيت ماكينة خياطة عالي النقاء" class="product-image">
-                        <h3 class="product-name">زيت ماكينة خياطة عالي النقاء</h3>
-                        <p class="product-availability available"><i class="fas fa-check-circle"></i> متوفر</p>
-                        <a href="products.html#accessories" class="btn btn-danger btn-block">اطلب الآن</a>
-                    </div>
-                    <div class="product-card">
-                        <img src="images/accessory-product-2.jpg" alt="مقص أقمشة احترافي" class="product-image">
-                        <h3 class="product-name">مقص أقمشة احترافي</h3>
-                        <p class="product-availability available"><i class="fas fa-check-circle"></i> متوفر</p>
-                        <a href="products.html#accessories" class="btn btn-danger btn-block">اطلب الآن</a>
-                    </div>
-                    <div class="product-card">
-                        <img src="images/orleh-product-1.jpg" alt="دليل خيط لماكينة أورليه" class="product-image">
-                        <h3 class="product-name">دليل خيط لماكينة أورليه</h3>
-                        <p class="product-availability available"><i class="fas fa-check-circle"></i> متوفر</p>
-                        <a href="products.html#orleh" class="btn btn-danger btn-block">اطلب الآن</a>
-                    </div>
-                </div>
-                <div class="text-center mt-4" data-aos="fade-up">
-                    <a href="products.html" class="btn btn-primary"><span><i class="fas fa-th-list"></i> عرض جميع المنتجات</span></a>
                 </div>
             </div>
         </section>
@@ -186,18 +156,7 @@
                         <h3>معلومات التواصل المباشر:</h3>
                         <p><i class="fas fa-phone-alt"></i> هاتف: <a href="tel:+201070598888">01070598888</a></p>
                         <p><i class="fas fa-envelope"></i> بريد إلكتروني: <a href="mailto:info@alextrading.com">info@alextrading.com</a></p>
-                        <p><i class="fas fa-map-marker-alt"></i> العنوان: الاسكندرية 2 طريق الحرية شارع فؤاد بجوار قسم العطارين امام قصر الابداع والثقافة 🤩🤩</p>
-                        <hr>
-                        <p><strong>للتواصل 📞 أو واتساب افضل هبعتلك كل التفاصيل:</strong></p>
-                        <p><i class="fas fa-phone-alt"></i> <a href="tel:+201070578888">010 70578888</a></p>
-                        <hr>
-                        <p><i class="fas fa-map-marker-alt"></i> شارع الحدائق بجوار شركة الغاز - كفر الدوار (على بعد 40 مترًا من الفرع القديم)</p>
-                        <p><i class="fas fa-phone-alt"></i> <a href="tel:+201211114346">01211114346</a></p>
-                        <p><i class="fas fa-phone-alt"></i> <a href="tel:+201211114348">01211114348</a></p>
-                        <hr>
-                        <p><i class="fas fa-map-marker-alt"></i> الاسكندريه الكيلو 23 طريق اسكندرية القاهره الصحراوي بعد واحة الجراري</p>
-                        <p><i class="fas fa-map-marker-alt"></i> الإسكندرية شارع المستعمرة الرئيسي</p>
-                        <p><i class="fas fa-map-marker-alt"></i> القاهرة 20 شارع جسر السويس بجوار محطة مترو الشهيد هشام بركات</p>
+                        <p><i class="fas fa-map-marker-alt"></i> العنوان: 2 طريق الحرية، شارع فؤاد، امام قصر الثقافة والابداع</p>
                         <div class="location-map">
                            <h3>موقعنا على الخريطة:</h3>
                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3412.5900998568407!2d29.90887831500907!3d31.199998981478357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f5c3fac5690781%3A0x758099860550056a!2sAttarin%20Police%20Station!5e0!3m2!1sen!2seg!4v1622640000000!5m2!1sen!2seg" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="موقع AlexTrading على الخريطة"></iframe>
@@ -238,14 +197,7 @@
                     <div class="footer-contact">
                         <p><i class="fas fa-phone"></i> <a href="tel:+201070598888">01070598888</a></p>
                         <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/+201070598888">01070598888</a></p>
-                        <p><i class="fas fa-phone"></i> <a href="tel:+201211114346">01211114346</a></p>
-                        <p><i class="fas fa-phone"></i> <a href="tel:+201211114348">01211114348</a></p>
                         <p><i class="fas fa-envelope"></i> <a href="mailto:info@alextrading.com">info@alextrading.com</a></p>
-                        <p><i class="fas fa-map-marker-alt"></i> الاسكندرية 2 طريق الحرية شارع فؤاد بجوار قسم العطارين امام قصر الابداع والثقافة</p>
-                        <p><i class="fas fa-map-marker-alt"></i> شارع الحدائق بجوار شركة الغاز - كفر الدوار</p>
-                        <p><i class="fas fa-map-marker-alt"></i> الاسكندريه الكيلو 23 طريق اسكندرية القاهره الصحراوي بعد واحة الجراري</p>
-                        <p><i class="fas fa-map-marker-alt"></i> الإسكندرية شارع المستعمرة الرئيسي</p>
-                        <p><i class="fas fa-map-marker-alt"></i> القاهرة 20 شارع جسر السويس بجوار محطة مترو الشهيد هشام بركات</p>
                     </div>
                 </div>
             </div>
@@ -255,6 +207,22 @@
         </div>
     </footer>
     
+    <!-- Gemini AI Modal -->
+    <div id="gemini-modal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal-btn" id="close-gemini-modal">&times;</button>
+            <h3 class="modal-title">✨ نصيحة خبير الصيانة</h3>
+            <div id="gemini-response-container" class="modal-body">
+                <div class="loading-spinner"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/+201070598888" class="floating-whatsapp" target="_blank" aria-label="تواصل عبر واتساب">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" xintegrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js" xintegrity="sha512-Ixzuzfxv1EqafeQlTCufWfaC6ful6WFqIz4G+dWvK0beHw0NVJrfDELWMfck3UsqSShQ6vpkg8KulFkcT19D6Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
