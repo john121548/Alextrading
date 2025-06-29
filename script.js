@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    // --- Product Data (Embedded to prevent loading errors) ---
+    // --- Product Data ---
     const productsData = [
       { id: "singer001", name_ar: "مكوك سنجر أصلي موديل 123", category: "singer", image_path: "images/spare-parts.jpg", availability: "available", featured: true },
       { id: "singer002", name_ar: "دواسة عراوي أوتوماتيك سنجر", category: "singer", image_path: "images/supplies.jpg", availability: "unavailable" },
@@ -14,18 +14,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // --- General Initializations ---
     function init() {
-        // Activate AOS animations
         if (typeof AOS !== 'undefined') {
             AOS.init({ duration: 800, once: true, offset: 50 });
         }
-
-        // Set current year in footer
         const currentYearSpan = document.getElementById('currentYear');
         if (currentYearSpan) {
             currentYearSpan.textContent = new Date().getFullYear();
         }
-
-        // Handle mobile menu
         const hamburger = document.getElementById('hamburgerMenu');
         const navLinks = document.getElementById('navLinks');
         if (hamburger && navLinks) {
@@ -33,17 +28,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 navLinks.classList.toggle('active');
             });
         }
-        
-        // Sticky Header Logic
         const header = document.querySelector('.site-header');
         if(header){
             let lastScrollTop = 0;
             window.addEventListener('scroll', () => {
                 let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
                 if (scrollTop > lastScrollTop && scrollTop > header.offsetHeight){
-                    header.style.top = `-${header.offsetHeight}px`; // Hide using dynamic height
+                    header.style.top = `-${header.offsetHeight}px`;
                 } else {
-                    header.style.top = '0'; // Show
+                    header.style.top = '0';
                 }
                 lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
             });
@@ -54,20 +47,15 @@ document.addEventListener('DOMContentLoaded', function() {
     function renderProducts(productsToRender, containerElement) {
         if (!containerElement) return;
         containerElement.innerHTML = '';
-        
         const noResultsMessage = document.getElementById('no-results-message');
-
         if (productsToRender.length === 0) {
             if(noResultsMessage) noResultsMessage.style.display = 'block';
             return;
         }
-        
         if(noResultsMessage) noResultsMessage.style.display = 'none';
-        
         productsToRender.forEach(product => {
             const availabilityClass = product.availability === 'available' ? 'available' : 'unavailable';
             const availabilityText = product.availability === 'available' ? 'متوفر' : 'غير متوفر حاليًا';
-
             const cardHTML = `
                 <div class="product-card">
                     <img src="${product.image_path}" alt="${product.name_ar}" class="product-image" onerror="this.onerror=null;this.src='https://placehold.co/300x200/e9ecef/343a40?text=Image';">
@@ -81,12 +69,89 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // --- Gemini AI Assistant Logic ---
+    function initGeminiAssistant() {
+        const getAdviceBtn = document.getElementById('get-advice-btn');
+        const problemDescription = document.getElementById('problem-description');
+        const modal = document.getElementById('gemini-modal');
+        const closeModalBtn = document.getElementById('close-gemini-modal');
+        const responseContainer = document.getElementById('gemini-response-container');
+
+        if (!getAdviceBtn) return;
+
+        getAdviceBtn.addEventListener('click', async () => {
+            const problem = problemDescription.value.trim();
+            if (problem === "") {
+                alert("الرجاء وصف المشكلة التي تواجهها.");
+                return;
+            }
+
+            modal.classList.add('show');
+            responseContainer.innerHTML = '<div class="loading-spinner"></div>';
+            
+            const prompt = `
+                أنت خبير في صيانة ماكينات الخياطة. مستخدم يصف مشكلة تواجهه ويريد نصيحة.
+                المشكلة هي: "${problem}"
+    
+                مهمتك هي تقديم رد واضح ومساعد باللغة العربية، مقسم إلى ثلاثة أقسام:
+                1.  **الأسباب المحتملة:** اذكر 2-3 أسباب قد تؤدي لهذه المشكلة.
+                2.  **خطوات الحل المقترحة:** قدم 2-3 خطوات بسيطة يمكن للمستخدم تجربتها.
+                3.  **قطع غيار قد تحتاجها:** اذكر 1-2 من قطع الغيار التي قد تحل المشكلة، مثل (إبر جديدة، مكوك، بيت مكوك، زيت ماكينة).
+    
+                اجعل الرد مختصراً ومباشراً.
+            `;
+
+            try {
+                let chatHistory = [{ role: "user", parts: [{ text: prompt }] }];
+                const payload = { contents: chatHistory };
+                const apiKey = ""; // Leave empty for Canvas provided key
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const result = await response.json();
+                
+                if (result.candidates && result.candidates.length > 0) {
+                    const text = result.candidates[0].content.parts[0].text;
+                    responseContainer.innerHTML = text
+                        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // Bold text
+                        .replace(/\n/g, '<br>'); // New lines
+                } else {
+                    throw new Error("لم يتم العثور على رد من المساعد الذكي.");
+                }
+
+            } catch (error) {
+                console.error("Gemini API Error:", error);
+                responseContainer.innerHTML = `<p>عفواً، حدث خطأ أثناء محاولة الحصول على نصيحة. الرجاء المحاولة مرة أخرى لاحقاً.</p>`;
+            }
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            modal.classList.remove('show');
+        });
+
+        window.addEventListener('click', (event) => {
+            if (event.target == modal) {
+                modal.classList.remove('show');
+            }
+        });
+    }
+
     // --- Page-Specific Logic ---
     function initHomePage() {
         if (document.body.classList.contains('homepage')) {
             const featuredGrid = document.getElementById('featured-product-grid');
             const featuredProducts = productsData.filter(p => p.featured);
             renderProducts(featuredProducts, featuredGrid);
+            initGeminiAssistant(); // Initialize Gemini feature on homepage
         }
     }
 
@@ -94,39 +159,30 @@ document.addEventListener('DOMContentLoaded', function() {
         if (document.body.classList.contains('products-page')) {
             const allProductsGrid = document.getElementById('all-products-grid');
             const filterBtns = document.querySelectorAll('.filter-btn');
-            
-            // Logic to handle URL parameter filtering
             const urlParams = new URLSearchParams(window.location.search);
             const filterFromUrl = urlParams.get('filter');
 
             if (filterFromUrl) {
-                // Apply filter from URL
                 const productsFilteredByUrl = productsData.filter(p => p.category === filterFromUrl);
                 renderProducts(productsFilteredByUrl, allProductsGrid);
-                // Update active state on buttons correctly
                 filterBtns.forEach(btn => {
                     btn.classList.toggle('active', btn.dataset.filter === filterFromUrl);
                 });
             } else {
-                // Initial render with all products if no filter in URL
                 renderProducts(productsData, allProductsGrid);
-                 // Make sure "All" button is active by default
                 filterBtns.forEach(btn => {
                     btn.classList.toggle('active', btn.dataset.filter === 'all');
                 });
             }
 
-            // Add click listeners to filter buttons
             filterBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
                     filterBtns.forEach(b => b.classList.remove('active'));
                     btn.classList.add('active');
-                    
                     const filterValue = btn.dataset.filter;
                     const filteredProducts = (filterValue === 'all')
                         ? productsData
                         : productsData.filter(p => p.category === filterValue);
-                    
                     renderProducts(filteredProducts, allProductsGrid);
                 });
             });
