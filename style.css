@@ -1,6 +1,6 @@
 /*
   AlexTrading - Enhanced Stylesheet
-  Version: 3.1
+  Version: 3.2
 */
 
 /* 1. Global Styles & Imports
@@ -27,6 +27,12 @@
 
 /* 2. Base & Reset
 -------------------------------------------------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box; /* القاعدة المضافة لمنع الفيضان */
+}
+
 html, body {
     width: 100%;
     overflow-x: hidden; /* لمنع التمرير الأفقي وضمان التوسيط الصحيح */
@@ -245,7 +251,7 @@ img { max-width: 100%; height: auto; }
 }
 .why-us-item h4 { font-size: 1.2rem; margin-bottom: 5px; color: var(--primary-color); }
 
-.products-page-header { background-color: var(--primary-color); }
+.products-page-header { background-color: var(--primary-color); padding: 50px 0;}
 .products-page-header .page-title, .products-page-header .page-subtitle {
     color: var(--light-text);
 }
@@ -283,7 +289,6 @@ img { max-width: 100%; height: auto; }
     padding: 12px;
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
-    box-sizing: border-box;
 }
 .contact-details h3, .location-map h3 { font-size: 1.5rem; color: var(--primary-color); margin-bottom: 15px; }
 .contact-details p { margin-bottom: 15px; }
