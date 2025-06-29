@@ -1,6 +1,6 @@
 /*
   AlexTrading - Enhanced Stylesheet
-  Version: 3.0
+  Version: 3.1
 */
 
 /* 1. Global Styles & Imports
@@ -27,7 +27,16 @@
 
 /* 2. Base & Reset
 -------------------------------------------------- */
-html { scroll-behavior: smooth; font-size: 16px; }
+html, body {
+    width: 100%;
+    overflow-x: hidden; /* لمنع التمرير الأفقي وضمان التوسيط الصحيح */
+}
+
+html { 
+    scroll-behavior: smooth; 
+    font-size: 16px; 
+}
+
 body {
     font-family: var(--font-family-base);
     direction: rtl;
@@ -55,7 +64,7 @@ img { max-width: 100%; height: auto; }
     color: var(--light-text);
     padding: 12px 18px;
     z-index: 9999;
-    transition: top var(--transition-speed);
+    transition: top var(--transition);
 }
 .skip-link:focus { top: 0; }
 
