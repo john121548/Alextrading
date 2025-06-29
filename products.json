@@ -1,0 +1,92 @@
+[
+  {
+    "id": "singer001",
+    "name_ar": "مكوك سنجر أصلي موديل 123",
+    "category": "singer",
+    "category_ar": "قطع غيار ماكينات سنجر (Singer)",
+    "description_ar": "مكوك عالي الجودة متوافق مع موديلات سنجر المتعددة. يضمن تشغيلاً سلسًا ودقيقًا.",
+    "image_path": "images/spare-parts.jpg",
+    "availability": "available",
+    "featured": true
+  },
+  {
+    "id": "singer002",
+    "name_ar": "دواسة عراوي أوتوماتيك سنجر",
+    "category": "singer",
+    "category_ar": "قطع غيار ماكينات سنجر (Singer)",
+    "description_ar": "لتنفيذ العراوي بسهولة ودقة على ماكينات سنجر. مثالية للمحترفين والهواة.",
+    "image_path": "images/supplies.jpg",
+    "availability": "unavailable",
+    "featured": false
+  },
+  {
+    "id": "over001",
+    "name_ar": "طقم سكاكين أوفر (عليا وسفلى)",
+    "category": "over",
+    "category_ar": "قطع غيار ماكينات أوفر (Overlock)",
+    "description_ar": "سكاكين حادة مصنوعة من الفولاذ المقاوم للصدأ لقص القماش بدقة أثناء الحياكة.",
+    "image_path": "images/machine-tools.jpg",
+    "availability": "available",
+    "featured": true
+  },
+  {
+    "id": "over002",
+    "name_ar": "حامل بكرات خيط لماكينة أوفر",
+    "category": "over",
+    "category_ar": "قطع غيار ماكينات أوفر (Overlock)",
+    "description_ar": "حامل متين يستوعب عدة بكرات خيط لتسهيل عملية الخياطة بالأوفر.",
+    "image_path": "images/logo.png",
+    "availability": "available",
+    "featured": false
+  },
+  {
+    "id": "orleh001",
+    "name_ar": "دليل خيط لماكينة أورليه",
+    "category": "orleh",
+    "category_ar": "قطع غيار ماكينات أورليه (Coverstitch)",
+    "description_ar": "يساعد في توجيه الخيط بشكل صحيح لغرزة أورليه مثالية ومتناسقة.",
+    "image_path": "images/spare-parts.jpg",
+    "availability": "available",
+    "featured": false
+  },
+  {
+    "id": "needles001",
+    "name_ar": "علبة إبر متنوعة (مقاسات مختلفة)",
+    "category": "needles",
+    "category_ar": "إبر ماكينات الخياطة",
+    "description_ar": "مجموعة إبر عالية الجودة تناسب مختلف أنواع الأقمشة، من الحرير إلى الجينز.",
+    "image_path": "images/supplies.jpg",
+    "availability": "available",
+    "featured": true
+  },
+  {
+    "id": "needles002",
+    "name_ar": "إبر ذهبية خاصة للتطريز",
+    "category": "needles",
+    "category_ar": "إبر ماكينات الخياطة",
+    "description_ar": "إبر ذات رأس ذهبي مصممة خصيصًا لماكينات التطريز لنتائج دقيقة.",
+    "image_path": "images/logo.png",
+    "availability": "unavailable",
+    "featured": false
+  },
+  {
+    "id": "accessories001",
+    "name_ar": "زيت ماكينة خياطة عالي النقاء",
+    "category": "accessories",
+    "category_ar": "مستلزمات أخرى",
+    "description_ar": "للحفاظ على أداء ماكينتك وحمايتها من الصدأ والتآكل.",
+    "image_path": "images/supplies.jpg",
+    "availability": "available",
+    "featured": true
+  },
+  {
+    "id": "accessories002",
+    "name_ar": "مقص أقمشة احترافي",
+    "category": "accessories",
+    "category_ar": "مستلزمات أخرى",
+    "description_ar": "مقص حاد ومتين مصنوع من الفولاذ المقاوم للصدأ لقص جميع أنواع الأقمشة بدقة.",
+    "image_path": "images/machine-tools.jpg",
+    "availability": "available",
+    "featured": false
+  }
+]
