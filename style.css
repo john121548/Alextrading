@@ -1,6 +1,6 @@
 /*
   AlexTrading - Enhanced Stylesheet
-  Version: 3.2
+  Version: 3.5 (Gemini Update)
 */
 
 /* 1. Global Styles & Imports
@@ -30,12 +30,12 @@
 *,
 *::before,
 *::after {
-    box-sizing: border-box; /* القاعدة المضافة لمنع الفيضان */
+    box-sizing: border-box;
 }
 
 html, body {
     width: 100%;
-    overflow-x: hidden; /* لمنع التمرير الأفقي وضمان التوسيط الصحيح */
+    overflow-x: hidden;
 }
 
 html { 
@@ -234,7 +234,112 @@ img { max-width: 100%; height: auto; }
 .product-card .btn { margin-top: auto; }
 .text-center.mt-4 { margin-top: 2rem; text-align: center; }
 
-/* 5. New & Enhanced Sections
+/* 5. Gemini Assistant Section
+-------------------------------------------------- */
+.gemini-assistant-section .section-header {
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+}
+.gemini-assistant-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.gemini-assistant-form textarea {
+    width: 100%;
+    max-width: 700px;
+    min-height: 120px;
+    padding: 15px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    font-family: var(--font-family-base);
+    font-size: 1rem;
+    resize: vertical;
+}
+.gemini-assistant-form textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 5px rgba(0, 120, 215, 0.2);
+}
+
+/* 6. Modal Styles
+-------------------------------------------------- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
+    align-items: center;
+    justify-content: center;
+}
+.modal.show {
+    display: flex;
+}
+.modal-content {
+    background-color: var(--card-bg);
+    margin: auto;
+    padding: 25px 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    position: relative;
+    width: 90%;
+    max-width: 600px;
+    animation: fadeInModal 0.4s ease-out;
+}
+@keyframes fadeInModal {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.close-modal-btn {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+.close-modal-btn:hover, .close-modal-btn:focus {
+    color: var(--dark-text);
+}
+.modal-title {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.modal-body {
+    min-height: 150px;
+    line-height: 1.8;
+}
+.modal-body strong {
+    color: var(--primary-color);
+    display: block;
+    margin-top: 15px;
+}
+.loading-spinner {
+    border: 5px solid var(--light-bg);
+    border-top: 5px solid var(--secondary-color);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin: 40px auto;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 7. Other Sections
 -------------------------------------------------- */
 .why-us-section { text-align: center; }
 .why-us-grid {
@@ -296,7 +401,44 @@ img { max-width: 100%; height: auto; }
 .location-map { margin-top: 20px; }
 .location-map iframe { border-radius: var(--border-radius); box-shadow: var(--shadow-sm); }
 
-/* 6. Footer
+.testimonial-slider-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+.testimonial-item {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    padding-top: 40px;
+}
+.testimonial-item::before {
+    content: '\f10d';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    color: var(--secondary-color);
+    opacity: 0.2;
+}
+.testimonial-item p {
+    font-style: italic;
+    color: var(--dark-text);
+    margin-bottom: 15px;
+}
+.testimonial-item h4 {
+    color: var(--primary-color);
+    font-weight: 700;
+    text-align: left;
+}
+
+
+/* 8. Footer
 -------------------------------------------------- */
 .site-footer {
     background-color: var(--footer-bg);
@@ -326,7 +468,42 @@ img { max-width: 100%; height: auto; }
     font-size: 0.9rem;
 }
 
-/* 7. Responsive Design
+/* 9. Floating WhatsApp Button
+-------------------------------------------------- */
+.floating-whatsapp {
+    position: fixed;
+    bottom: 25px;
+    left: 25px; /* Changed from right to left for RTL layout */
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    color: #FFF;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 30px;
+    line-height: 60px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+    z-index: 100;
+    transition: transform 0.3s ease;
+    animation: whatsapp-pulse 2s infinite;
+}
+.floating-whatsapp:hover {
+    transform: scale(1.1);
+}
+@keyframes whatsapp-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
+
+
+/* 10. Responsive Design
 -------------------------------------------------- */
 @media (max-width: 992px) {
     body { padding-top: 65px; } /* Main header height */
