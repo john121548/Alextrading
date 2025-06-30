@@ -1,10 +1,9 @@
 /*
   AlexTrading - Enhanced Stylesheet
-  Version: 3.5
+  Version: 3.6
 */
 
-/* 1. Global Styles & Imports
--------------------------------------------------- */
+/* ... (All previous CSS rules remain the same) ... */
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap');
 
 :root {
@@ -25,8 +24,6 @@
     --font-family-base: 'Cairo', Arial, sans-serif;
 }
 
-/* 2. Base & Reset
--------------------------------------------------- */
 *,
 *::before,
 *::after {
@@ -47,7 +44,7 @@ body {
     font-family: var(--font-family-base);
     direction: rtl;
     margin: 0;
-    padding-top: 55px; /* Adjusted for new header height */
+    padding-top: 55px;
     background-color: var(--light-bg);
     color: var(--dark-text);
     line-height: 1.7;
@@ -74,9 +71,6 @@ img { max-width: 100%; height: auto; }
 }
 .skip-link:focus { top: 0; }
 
-
-/* 3. Header
--------------------------------------------------- */
 .site-header {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -90,14 +84,14 @@ img { max-width: 100%; height: auto; }
     color: var(--light-text);
     padding: 8px 0;
     font-size: 0.85rem;
-    display: none; /* Hidden by default, shown on larger screens */
+    display: none;
 }
 @media (min-width: 992px) {
     .header-top-bar {
         display: block;
     }
     body {
-        padding-top: 99px; /* Full header height */
+        padding-top: 99px;
     }
 }
 .header-top-bar .container {
@@ -149,9 +143,6 @@ img { max-width: 100%; height: auto; }
 }
 .hamburger-menu { display: none; }
 
-
-/* 4. Sections & Cards
--------------------------------------------------- */
 .section-padding { padding: 70px 0; }
 .section-padding-alt { padding: 70px 0; background-color: var(--medium-bg); }
 .section-title {
@@ -202,6 +193,11 @@ img { max-width: 100%; height: auto; }
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
 }
+/* New rule for clickable service cards */
+.card-link {
+    text-decoration: none;
+    color: inherit;
+}
 .card {
     background-color: var(--card-bg);
     padding: 30px;
@@ -209,6 +205,7 @@ img { max-width: 100%; height: auto; }
     box-shadow: var(--shadow-md);
     text-align: center;
     transition: transform var(--transition);
+    height: 100%; /* Ensure cards in the same row have same height */
 }
 .card:hover { transform: translateY(-5px); }
 .card-icon { font-size: 3rem; color: var(--secondary-color); margin-bottom: 20px; }
@@ -243,8 +240,6 @@ img { max-width: 100%; height: auto; }
 .product-card .btn { margin-top: auto; }
 .text-center.mt-4 { margin-top: 2rem; text-align: center; }
 
-/* 5. New & Enhanced Sections
--------------------------------------------------- */
 .why-us-section { text-align: center; }
 .why-us-grid {
     display: grid;
@@ -305,45 +300,6 @@ img { max-width: 100%; height: auto; }
 .location-map { margin-top: 20px; }
 .location-map iframe { border-radius: var(--border-radius); box-shadow: var(--shadow-sm); }
 
-.testimonial-slider-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-.testimonial-item {
-    background-color: var(--card-bg);
-    padding: 30px;
-    border-radius: var(--border-radius);
-    border: 1px solid var(--border-color);
-    box-shadow: var(--shadow-sm);
-    position: relative;
-    padding-top: 40px;
-}
-.testimonial-item::before {
-    content: '\f10d';
-    font-family: 'Font Awesome 6 Free';
-    font-weight: 900;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 2rem;
-    color: var(--secondary-color);
-    opacity: 0.2;
-}
-.testimonial-item p {
-    font-style: italic;
-    color: var(--dark-text);
-    margin-bottom: 15px;
-}
-.testimonial-item h4 {
-    color: var(--primary-color);
-    font-weight: 700;
-    text-align: left;
-}
-
-
-/* 6. Footer
--------------------------------------------------- */
 .site-footer {
     background-color: var(--footer-bg);
     color: #adb5bd;
@@ -372,12 +328,10 @@ img { max-width: 100%; height: auto; }
     font-size: 0.9rem;
 }
 
-/* 7. Floating WhatsApp Button
--------------------------------------------------- */
 .floating-whatsapp {
     position: fixed;
     bottom: 25px;
-    left: 25px; /* Changed from right to left for RTL layout */
+    left: 25px;
     width: 60px;
     height: 60px;
     background-color: #25D366;
@@ -406,11 +360,8 @@ img { max-width: 100%; height: auto; }
     }
 }
 
-
-/* 8. Responsive Design
--------------------------------------------------- */
 @media (max-width: 992px) {
-    body { padding-top: 65px; } /* Main header height */
+    body { padding-top: 65px; }
     .header-top-bar { display: none; }
     .main-nav ul {
         display: none;
